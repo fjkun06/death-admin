@@ -1,5 +1,103 @@
 @use "../utils/mixins" as *;
-@use "../utils/variables" as vars;
+@use "../utils/variables" as *;
 .dtb__home {
- 
+  gap: 7rem;
+
+  /***********Main Heading***********/
+  h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    @media (min-width: 600px) {
+      font-size: 2.8rem;
+    }
+    @media (min-width: 768px) {
+      font-size: 3.2rem;
+    }
+    @media (min-width: 960px) {
+      font-size: 5.2rem;
+    }
+  }
+
+  /***********Logic Card***********/
+  &__login {
+    @include flex(column);
+    @include size(90%, 30%);
+    max-width: 58.5rem;
+    min-height: 26.5rem;
+    // @include size(35%, 40%);
+    background-color: $bodyTextColor;
+    color: $textColor;
+    border-radius: 1rem;
+    justify-content: space-evenly;
+
+    /***********Sub Heading***********/
+    h2 {
+      font-size: 2rem;
+      @media (min-width: 600px) {
+        font-size: 2.4rem;
+      }
+      @media (min-width: 768px) {
+        font-size: 2.8rem;
+      }
+      @media (min-width: 960px) {
+        font-size: 3.2rem;
+      }
+    }
+
+    /***********Logic Form***********/
+    form {
+      @include flex(column);
+      @include size(80%, 60%);
+
+      /***********Input and Label***********/
+      span {
+        @include flex;
+        @include size(100%, max-content);
+        padding: 1rem;
+        justify-content: space-between;
+        gap: 0.5rem;
+        /***********Form Input Fields Labels***********/
+        label {
+          width: 10.6rem !important;
+        }
+        label,
+        input {
+          font-size: 1.4rem;
+          // font-size: 2rem;
+        }
+        /***********Form Input Fields***********/
+        input {
+          outline-color: $textColor;
+          outline-width: 0.1rem;
+          caret-color: $textColor;
+          border: 0.1rem solid $textColor;
+          color: $textColor;
+          border-radius: 0.5rem;
+          height: 3rem;
+          width: 65%;
+          padding-inline: 0.5rem;
+        }
+      }
+
+      /***********Form Button***********/
+      button {
+        align-self: flex-end;
+        margin-right: 1rem;
+        color: $bodyTextColor;
+        background-color: $textColor;
+        cursor: pointer;
+        border: 0.1rem solid $textColor;
+        @include size(max-content);
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        transition: all 0.25s ease-in-out;
+
+        &:hover {
+          border: 0.1rem solid $textColor;
+          color: $textColor;
+          background-color: $bodyTextColor;
+        }
+      }
+    }
+  }
 }
