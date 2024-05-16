@@ -1,4 +1,4 @@
-interface User {
+export interface User {
   user: string;
   passwort: string;
   token: string;
@@ -64,6 +64,16 @@ export function addInitialUserToLocalStorage() {
   }
 }
 
+/**Log user in in localStorage */
+export function startSession() {
+  localStorage.setItem("status", "loggedin");
+}
+
+/**Log user out in localStorage */
+export function endSession() {
+  localStorage.setItem("status", "loggedout");
+}
+
 export function authenticateUser({ user, passwort, token }: User) {
   const users = localStorage.getItem("users");
   if (users !== null) {
@@ -77,6 +87,6 @@ export function authenticateUser({ user, passwort, token }: User) {
 
     const isInDatabase = targetUser.length > 0;
 
-    return { isInDatabase, username: targetUser[0] };
+    return { isInDatabase, username: targetUser[0]?.user };
   }
 }
