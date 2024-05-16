@@ -1,12 +1,14 @@
-import { classNameGenerator } from '@/utils'
-import React from 'react'
+import { classNameGenerator } from "@/utils";
+import React from "react";
 
 const HomeScreen = () => {
   return (
-   <main className={classNameGenerator('home')}>
-      Digi-TB
-  </main>
-  )
-}
+    <main className={classNameGenerator("home")}>
+  
+      hello bae
 
-export default HomeScreen
+    </main>
+  );
+};
+
+export default HomeScreen;

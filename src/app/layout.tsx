@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/main.scss";
-
+import { Footer, Navbar } from "@/components";
 
 export const metadata: Metadata = {
   title: "Digi-TB",
@@ -14,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={"zozo"}>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
