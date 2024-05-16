@@ -1,16 +1,11 @@
 "use client";
 import React from "react";
 import { NavLink } from "@/components";
-import { data } from "@/utils/localStorage";
+import { addInitialUserToLocalStorage } from "@/utils/localStorage";
 
 const Navbar = () => {
   React.useEffect(() => {
-    /***Saving users to localstorage */
-    const users = localStorage.getItem("users");
-    if (users === null) {
-      localStorage.setItem("users", JSON.stringify(data));
-    }
-    console.log("hell-o: ", JSON.parse(users as string));
+    addInitialUserToLocalStorage();
   }, []);
 
   const links = [

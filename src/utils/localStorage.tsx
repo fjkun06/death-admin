@@ -1,3 +1,8 @@
+interface User {
+  user: string;
+  passwort: string;
+  token: string;
+}
 
 export const data = [
   {
@@ -51,4 +56,27 @@ export const data = [
     token: "ARZ6F7G8",
   },
 ];
+export function addInitialUserToLocalStorage() {
+  /***Saving users to localstorage */
+  const users = localStorage.getItem("users");
+  if (users === null) {
+    localStorage.setItem("users", JSON.stringify(data));
+  }
+}
 
+export function authenticateUser({ user, passwort, token }: User) {
+  const users = localStorage.getItem("users");
+  if (users !== null) {
+    const targetUser = JSON.parse(users as string).filter(
+      (el: User) =>
+        el.user === user && el.passwort === passwort && el.token === token
+    );
+    /****Creating user session after succesful authetication */
+    targetUser.length > 0 &&
+      localStorage.setItem("currentUser", JSON.stringify(targetUser[0]));
+
+    const isInDatabase = targetUser.length > 0;
+
+    return { isInDatabase, username: targetUser[0] };
+  }
+}
