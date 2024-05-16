@@ -1,8 +1,7 @@
+import { HomeScreen } from "@/screens";
 
 export default function Home() {
   return (
-    <main>
-      Hello bae
-  </main>
+    <HomeScreen/>
   );
 }

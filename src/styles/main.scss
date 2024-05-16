@@ -31,9 +31,12 @@ html {
     font-size: 1.6em;
     color: #000;
     @include utils.flex(column);
+    @include utils.size(inherit);
 
     main {
       background: transparent;
+      background-color: #20B2AA;
+      @include utils.size(inherit);
     }
   }
 }
