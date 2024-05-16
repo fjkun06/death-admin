@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       footer
-      <NavLink />
+      {/* <NavLink /> */}
     </footer>
   );
 };

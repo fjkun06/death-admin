@@ -1,5 +1,5 @@
 @use "../utils/mixins" as *;
-@use "../utils/variables" as vars;
+@use "../utils/variables" as *;
 
  /**************************Navbar**************************/
   nav, footer {
@@ -8,7 +8,7 @@
     background-color: #fff;
     padding-inline: 2rem;
     justify-content: space-between;
-    color: #064c4c;
+    color: $textColor;
 
      /*Styling navbar link items*/
 

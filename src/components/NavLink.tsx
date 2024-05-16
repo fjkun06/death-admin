@@ -3,21 +3,19 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-export default function NavLink() {
+const NavLink = ({ route, label }: { route?: string; label: string }) => {
   const pathname = usePathname();
 
   return (
-    <div>
-      <Link className={`link ${pathname === "/" ? "active" : ""}`} href="/">
-        Home
-      </Link>
-
-      <Link
-        className={`link ${pathname === "/impreessum" ? "active" : ""}`}
-        href="/impreessum"
-      >
-        Impreessum
-      </Link>
-    </div>
+    <Link
+      className={`nav__link ${
+        pathname === (route ?? "/") ? "nav__link--active" : ""
+      }`}
+      href={route ?? "/"}
+    >
+      {label}
+    </Link>
   );
-}
+};
+
+export default NavLink;
