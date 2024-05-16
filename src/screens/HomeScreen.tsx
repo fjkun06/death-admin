@@ -4,9 +4,7 @@ import React from "react";
 const HomeScreen = () => {
   return (
     <main className={classNameGenerator("home")}>
-  
-      hello bae
-
+      <h1>Digitales Todesbescheinigung App</h1>
     </main>
   );
 };

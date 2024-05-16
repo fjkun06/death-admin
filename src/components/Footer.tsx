@@ -4,8 +4,7 @@ import NavLink from "./NavLink";
 const Footer = () => {
   return (
     <footer>
-      footer
-      {/* <NavLink /> */}
+      Copywright 2024 &copy; Digitales Todesbescheinigung
     </footer>
   );
 };

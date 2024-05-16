@@ -37,8 +37,10 @@ html {
 
     main {
       background: transparent;
-      background-color: #008B8B;
+      background-color: vars.$textColor;
       @include utils.size(inherit);
+      @include utils.flex(column);
+      color: vars.$bodyTextColor;
     }
   }
 }
