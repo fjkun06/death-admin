@@ -1,32 +1,5 @@
 @use "../utils/mixins" as *;
 @use "../utils/variables" as vars;
 .dtb__home {
-  /**************************Navbar**************************/
-  nav, footer {
-    @include flex;
-    @include size(100%, 4rem);
-    background-color: #fff;
-    padding-inline: 2rem;
-    justify-content: space-between;
-    color: #064c4c;
-
-     /*Styling navbar link items*/
-
-      span {
-        cursor: pointer;
-      }
-
-    /*Styling elements on the right hand side*/
-    div {
-      @include flex;
-      @include size(min-content, 100%);
-      padding-inline: 1rem;
-      column-gap: 2rem;
-
-      /*Styling elements link items*/
-
-      span {
-      }
-    }
-  }
+ 
 }
