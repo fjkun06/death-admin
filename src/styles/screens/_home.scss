@@ -1,0 +1,113 @@
+@use "../utils/mixins" as *;
+@use "../utils/variables" as *;
+.dtb__home {
+  gap: 7rem;
+
+  /***********Main Heading***********/
+  h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    @media (min-width: 600px) {
+      font-size: 2.8rem;
+    }
+    @media (min-width: 768px) {
+      font-size: 3.2rem;
+    }
+    @media (min-width: 960px) {
+      font-size: 5.2rem;
+    }
+  }
+
+  /***********Logic Card***********/
+  &__login {
+    @include flex(column);
+    @include size(90%, 30%);
+    max-width: 58.5rem;
+    min-height: 30rem;
+    background-color: $bodyTextColor;
+    color: $textColor;
+    border-radius: 1rem;
+    justify-content: space-evenly;
+    padding-bottom: 2rem;
+
+    /***********Sub Heading***********/
+    h2 {
+      font-size: 2rem;
+
+      @media (min-width: 600px) {
+        font-size: 2.4rem;
+      }
+      @media (min-width: 768px) {
+        font-size: 2.8rem;
+      }
+      @media (min-width: 960px) {
+        font-size: 3.2rem;
+      }
+    }
+
+    /***********Logic Form***********/
+    form {
+      @include flex(column);
+      @include size(80%, 60%);
+      margin-top: 3rem;
+
+      /***********Input and Label***********/
+      span {
+        @include flex;
+        @include size(100%, max-content);
+        padding: 1rem;
+        justify-content: space-between;
+        gap: 0.5rem;
+        /***********Form Input Fields Labels***********/
+        label {
+          width: 10.6rem !important;
+        }
+        label,
+        input {
+          font-size: 1.4rem;
+        }
+        /***********Form Input Fields***********/
+        input {
+          outline-color: $textColor;
+          outline-width: 0.1rem;
+          caret-color: $textColor;
+          border: 0.1rem solid $textColor;
+          color: $textColor;
+          border-radius: 0.5rem;
+          @include size(65%, 3rem);
+          padding-inline: 0.5rem;
+        }
+      }
+
+      span.error {
+        color: red;
+      }
+
+
+      /***********Loading Component***********/
+      .loader {
+        @include size(7.5rem, 3rem);
+        position: relative;
+        font-size: 1.2rem;
+      }
+      .loader:before {
+        content: "";
+        position: absolute;
+        border-radius: 5rem;
+        box-shadow: 0 0 0 0.3rem inset $textColor;
+        animation: l3 0.75s infinite alternate;
+      }
+      @keyframes l3 {
+        0% {
+          inset: 0 3.5rem 0 0;
+        }
+        50% {
+          inset: 0 0 0 0;
+        }
+        100% {
+          inset: 0 0 0 3.5rem;
+        }
+      }
+    }
+  }
+}

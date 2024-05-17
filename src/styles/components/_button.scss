@@ -1,0 +1,53 @@
+@use "../utils/mixins" as *;
+@use "../utils/variables" as *;
+
+/***********Form Button***********/
+button {
+  align-self: flex-end;
+  margin-right: 1rem;
+  color: $bodyTextColor;
+  background-color: $textColor;
+  cursor: pointer;
+  border: 0.1rem solid $textColor;
+  @include size(max-content);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease-in-out;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  &:hover:enabled {
+    color: $textColor;
+    background-color: $bodyTextColor;
+  }
+  &:disabled {
+    filter: grayscale(80%);
+  }
+}
+
+.logout {
+  background-color: #d13c3cc7;
+  &:hover:enabled {
+    color: $bodyTextColor;
+    background-color: #d13c3c;
+  }
+}
+.forofor {
+  background-color: $bodyTextColor;
+  color: $textColor;
+  &:hover:enabled {
+    transform: scale(1.025);
+  }
+}
+
+.new {
+  @include flex;
+  background-color: $bodyTextColor;
+  color: $textColor;
+  gap: 0.5rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  margin: 0;
+  &:hover {
+    transform: scale(1.025);
+  }
+}

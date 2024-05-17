@@ -1,0 +1,50 @@
+//importing utilities
+@use "components";
+@use "screens";
+@use "utils/mixins" as utils;
+@use "utils/variables" as vars;
+
+//styling links
+a {
+  text-decoration: none;
+}
+
+//all components
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Code Variable", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+//Configuring html
+html {
+  @include utils.size(100vw, 100%);
+  @include utils.flex;
+  font-size: 62.5%;
+  -webkit-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  background: vars.$white;
+
+  body {
+    font-size: 1.6em;
+    color: #000;
+    @include utils.flex(column);
+    @include utils.size(inherit);
+
+    main {
+      background: transparent;
+      background-color: vars.$textColor;
+      @include utils.size(inherit);
+      @include utils.flex(column);
+      color: vars.$bodyTextColor;
+    }
+
+    #impressum,#datenschutz {
+      max-height: calc(100% - 70px);
+    }
+  }
+}

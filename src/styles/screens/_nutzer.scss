@@ -1,0 +1,181 @@
+@use "../utils/mixins" as *;
+@use "../utils/variables" as *;
+
+/*Mixin to generate color theme based on user account type*/
+@mixin userTheme($variant) {
+  $mainBackground: rgba($variant, 26, 92, 0.596);
+  $tableHeadHover: rgba($variant, 26, 92, 0.85);
+  $tableHead: rgb($variant, 26, 92);
+  background-color: $mainBackground;
+
+  /************User scrollbar styling: both modal and table************/
+  .dtb__nutzer__modal .image--container,
+  &__table {
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: darken($tableHead, 20%);
+      background: $tableHead;
+    }
+  }
+
+  /************User Modal button styling************/
+  .dtb__nutzer__modal button {
+    background-color: $tableHead;
+    border: 0.1rem solid $tableHead;
+
+    &:hover:enabled {
+      color: $tableHead;
+      background-color: lighten($tableHead, 60%);
+    }
+  }
+
+  table {
+    th {
+      background-color: $tableHead;
+    }
+  }
+  tbody tr {
+    &:hover {
+      background-color: $tableHead;
+    }
+
+    &:last-of-type {
+      border-bottom: 2px solid $tableHead;
+    }
+  }
+}
+
+.dtb__nutzer,
+.dtb__nutzer__Ärzte,
+.dtb__nutzer__Gesundheitsämter,
+.dtb__nutzer__Standesämter {
+  position: relative;
+  justify-content: flex-start;
+  $tableHead: rgb(0, 152, 121);
+  background-color: rgba($tableHead, 0.589);
+
+  /***********User page header********* */
+  header {
+    @include size(100%, max-content);
+    @include flex;
+    justify-content: space-between;
+    padding: 2rem;
+
+    /************Welcome text************/
+    div {
+      h1 {
+        font-size: 5rem;
+      }
+      span {
+        font-size: 2rem;
+      }
+    }
+
+    /************Logout Button************/
+    button {
+      align-self: flex-start;
+    }
+  }
+
+  /************New user section************/
+  &__neu {
+    @include size(100%, max-content);
+    @include flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+
+    span:first-child {
+      font-size: 1.8rem;
+    }
+  }
+
+  /************User Modal button styling************/
+  .dtb__nutzer__modal button {
+    background-color: $tableHead;
+    border: 0.1rem solid $tableHead;
+
+    &:hover:enabled {
+      color: $tableHead;
+      background-color: lighten($tableHead, 60%);
+    }
+  }
+  /************User scrollbar styling: both modal and table************/
+  .dtb__nutzer__modal .image--container,
+  &__table {
+    &::-webkit-scrollbar {
+      @include size(0.7rem);
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: $bodyTextColor;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: darken($tableHead, 20%);
+      background: $tableHead;
+      border-radius: 10rem;
+    }
+  }
+
+  /************User Table section************/
+  &__table {
+    width: 100%;
+    max-width: 150rem;
+    padding-inline: 2rem;
+
+    @media (max-width: 540px) {
+      overflow-x: scroll;
+    }
+
+    table {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+
+      /******************Table header*****************/
+      th {
+        text-align: left;
+        background-color: $tableHead;
+        color: white;
+      }
+    }
+
+    th,
+    td {
+      padding: 1.2rem 1.5rem;
+    }
+
+    /******************Table rows*****************/
+    tbody tr {
+      border-bottom: 1px solid #dddddd;
+      background-color: $bodyTextColor;
+      transition: all 0.25s ease-in-out;
+      color: $textColor;
+
+      &:nth-of-type(even) {
+        background-color: #ddd;
+      }
+
+      &:hover {
+        color: $bodyTextColor;
+        background-color: rgba($tableHead, 0.85);
+        cursor: pointer;
+      }
+
+      &:last-of-type {
+        border-bottom: 2px solid $tableHead;
+      }
+    }
+  }
+}
+
+.dtb__nutzer__Standesämter {
+  @include userTheme(38);
+}
+.dtb__nutzer__Gesundheitsämter {
+  @include userTheme(76);
+}
