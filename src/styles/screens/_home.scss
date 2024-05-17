@@ -83,29 +83,6 @@
         color: red;
       }
 
-      /***********Form Button***********/
-      button {
-        align-self: flex-end;
-        margin-right: 1rem;
-        color: $bodyTextColor;
-        background-color: $textColor;
-        cursor: pointer;
-        border: 0.1rem solid $textColor;
-        @include size(max-content);
-        padding: 1rem 1.5rem;
-        border-radius: 0.5rem;
-        transition: all 0.25s ease-in-out;
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        &:hover:enabled {
-          border: 0.1rem solid $textColor;
-          color: $textColor;
-          background-color: $bodyTextColor;
-        }
-        &:disabled {
-          filter: grayscale(80%);
-        }
-      }
 
       /***********Loading Component***********/
       .loader {

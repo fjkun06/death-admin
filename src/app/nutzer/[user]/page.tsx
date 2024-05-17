@@ -1,34 +1,60 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { classNameGenerator } from "@/utils";
+import accountTypeChecker from "@/utils/accountTypeChecker";
 import { User } from "@/utils/localStorage";
 import React from "react";
-function getData() {
-  const res = localStorage.getItem("currentUser");
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
 
-  if (res === null) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return JSON.parse(res);
-}
-
-const Projects = ({ params }: { params: { user: string } }) => {
+const Projects = ({ params: { user } }: { params: { user: string } }) => {
   const [currentUser, setCurrentUser] = React.useState<User | null>();
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const router = useRouter();
+
   React.useEffect(() => {
+    //getting user data from local storage
+    function getData() {
+      const res = JSON.parse(localStorage.getItem("currentUser") as string);
+      console.log(res);
+
+      if (res === null || res.user !== user) {
+        router.push(`/`);
+      } else {
+        setLoading(false);
+        return res;
+      }
+    }
     setCurrentUser(getData());
-  }, []);
+    // console.log(accountTypeChecker(getData().token));
+  }, [router, user]);
 
-  console.log(currentUser);
+  /***Loasding screen to show during authentication */
+  if (loading)
+    return (
+      <main className={classNameGenerator("nutzer")}>
+        <h1>Ladend...</h1>
+      </main>
+    );
 
+  /***If user is logged in */
   return (
     <main className={classNameGenerator("nutzer")}>
-      {params.user}
-      <div>
-        <span>{currentUser?.user}</span>
-        <span>{currentUser?.token}</span>
+      <div className="">
+        <div>
+          <h1>Herzlich willkommen, {user}</h1>
+          {currentUser && (
+            <span>
+              Kontoklasse: {accountTypeChecker(currentUser?.token as string)}
+            </span>
+          )}
+          {/* <span>{currentUser?.user}</span> */}
+          {/* <span>{currentUser?.token}</span> */}
+        </div>
+
+        <button type="submit" className='logout'>
+          Abmelden
+        </button>
       </div>
+
       <table id="customer">
         <thead>
           <tr>
