@@ -4,11 +4,16 @@ import { classNameGenerator } from "@/utils";
 import accountTypeChecker from "@/utils/accountTypeChecker";
 import { endSession, User } from "@/utils/localStorage";
 import React from "react";
+import { UserModal } from "@/components";
 
 const Projects = ({ params: { user } }: { params: { user: string } }) => {
   const [currentUser, setCurrentUser] = React.useState<User | null>();
   const [loading, setLoading] = React.useState<boolean>(true);
+  const [modalOn, setModalOn] = React.useState<boolean>(false);
   const router = useRouter();
+
+  /***Modal toggle function */
+  const toggleModal = () => setModalOn((state) => !state);
 
   React.useEffect(() => {
     //getting user data from local storage
@@ -65,7 +70,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
           {accountType === "Ärzte" ? "Patienten " : "Ärzte "}
           hinzuzufügen
         </span>
-        <button type="button" className="new" onClick={logOut}>
+        <button type="button" className="new" onClick={toggleModal}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -95,7 +100,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
           <tbody>
             {currentUser &&
               currentUser?.[loopAccount]?.map((element: any) => (
-                <tr key={element.name}>
+                <tr key={element.name} onClick={toggleModal}>
                   <td>{element.name} </td>
                   <td>{element.id} </td>
                   <td>{element.datum} </td>
@@ -106,6 +111,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
           </tbody>
         </table>
       </div>
+      {modalOn && <UserModal toggleModal={toggleModal} />}
     </main>
   );
 };

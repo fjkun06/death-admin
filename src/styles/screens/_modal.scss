@@ -1,0 +1,45 @@
+@use "../utils/mixins" as *;
+@use "../utils/variables" as *;
+.dtb__nutzer__modal {
+  transition: all 0.25s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include size(100%);
+  @include flex;
+
+  /**Modal items container******************/
+  section {
+    background-color: #fff;
+    @include size(80%, 90%);
+    max-width: 96rem;
+
+    /**Modal images container******************/
+    .image--container {
+      @include flex(column);
+      justify-content: flex-start;
+      @include size(100%, 87.5%);
+      overflow-y: scroll;
+      img {
+        @include size(100%, 100%);
+      }
+    }
+
+    /**Modal buttons container******************/
+    .button-row {
+      &--top,
+      &--bottom {
+        @include flex;
+        justify-content: space-between;
+        align-items: center;
+        @include size(100%, max-content);
+        padding: 1rem;
+        // background-color: red;
+        button {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

@@ -28,6 +28,7 @@
 .dtb__nutzer__Ärzte,
 .dtb__nutzer__Gesundheitsämter,
 .dtb__nutzer__Standesämter {
+  position: relative;
   justify-content: flex-start;
   $tableHead: rgb(0, 152, 121);
   background-color: rgba($tableHead, 0.589);
@@ -90,7 +91,7 @@
       &::-webkit-scrollbar-thumb {
         background: darken($tableHead, 20%);
         background: $tableHead;
-        border-radius: 100px;
+        border-radius: 10rem;
       }
     }
 
