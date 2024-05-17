@@ -14,5 +14,5 @@ interface ILocaleLayout {
 export default function LocaleLayout({ children }: ILocaleLayout) {
   // Validate that the incoming `locale` parameter is valid
 
-  return <main>{children}</main>;
+  return <main id="datenschutz">{children}</main>;
 }

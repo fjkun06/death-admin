@@ -1,7 +1,7 @@
 @use "../utils/mixins" as *;
 @use "../utils/variables" as *;
-.dtb__impressum {
-  justify-content: flex-start;
+.dtb__impressum,
+.dtb__datenschutz {
   gap: 5rem;
   @include size(100%, 100%);
   line-height: 2.5rem;
@@ -17,6 +17,17 @@
 
   @media (max-width: 1200px) {
     overflow-y: scroll;
+  }
+  @media (max-width: 1024px) {
+    justify-content: start;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 3.2rem;
+    }
   }
 
   section {
@@ -35,19 +46,19 @@
   }
 
   /******************Scrollbar Section*****************/
-    &::-webkit-scrollbar {
-      @include size(0.7rem);
-    }
+  &::-webkit-scrollbar {
+    @include size(0.7rem);
+  }
 
-    /* Track */
-    &::-webkit-scrollbar-track {
-      background: $bodyTextColor;
-    }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $bodyTextColor;
+  }
 
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: $textColor;
-      background: lighten($textColor, 10%);
-      border-radius: 10rem;
-    }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $textColor;
+    background: lighten($textColor, 10%);
+    border-radius: 10rem;
+  }
 }
