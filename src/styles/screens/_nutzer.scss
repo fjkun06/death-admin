@@ -67,44 +67,71 @@
       font-size: 1.8rem;
     }
   }
-  table {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+
+  /************User Table section************/
+  &__table {
     width: 100%;
-    margin-inline: 2rem;
+    max-width: 150rem;
+    padding-inline: 2rem;
 
-    /******************Table header*****************/
-    th {
-      text-align: left;
-      background-color: $tableHead;
-      color: white;
-    }
-  }
+    @media (max-width: 540px) {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        width: 0.7rem;
+        height: 0.7rem;
+      }
 
-  th,
-  td {
-    padding: 1.2rem 1.5rem;
-  }
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: $bodyTextColor;
+      }
 
-  tbody tr {
-    border-bottom: 1px solid #dddddd;
-    background-color: $bodyTextColor;
-    transition: all 0.25s ease-in-out;
-    color: $textColor;
-
-    &:nth-of-type(even) {
-      background-color: #ddd;
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: darken($tableHead, 20%);
+        background: $tableHead;
+        border-radius: 100px;
+      }
     }
 
-    &:hover {
-      color: $bodyTextColor;
-      background-color: rgba($tableHead, 0.85);
-      cursor: pointer;
+    table {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+
+      /******************Table header*****************/
+      th {
+        text-align: left;
+        background-color: $tableHead;
+        color: white;
+      }
     }
 
-    &:last-of-type {
-      border-bottom: 2px solid $tableHead;
+    th,
+    td {
+      padding: 1.2rem 1.5rem;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #dddddd;
+      background-color: $bodyTextColor;
+      transition: all 0.25s ease-in-out;
+      color: $textColor;
+
+      &:nth-of-type(even) {
+        background-color: #ddd;
+      }
+
+      &:hover {
+        color: $bodyTextColor;
+        background-color: rgba($tableHead, 0.85);
+        cursor: pointer;
+      }
+
+      &:last-of-type {
+        border-bottom: 2px solid $tableHead;
+      }
     }
   }
 }

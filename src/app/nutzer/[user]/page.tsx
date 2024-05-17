@@ -81,30 +81,31 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
           <span>Neu {accountType === "Ärzte" ? "Patient " : "Arzt "}</span>
         </button>
       </div>
-
-      <table id="customer">
-        <thead>
-          <tr>
-            <th>{accountType === "Ärzte" ? "Patientname" : "Arztname"}</th>
-            <th>PatientId</th>
-            <th>Datum</th>
-            <th>Uhrzeit</th>
-            <th>Geschlecht</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentUser &&
-            currentUser?.[loopAccount]?.map((element: any) => (
-              <tr key={element.name}>
-                <td>{element.name} </td>
-                <td>{element.id} </td>
-                <td>{element.datum} </td>
-                <td>{element.uhrzeit} </td>
-                <td>{element.geschlecht} </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <div className={classNameGenerator(`nutzer__${accountType}__table`)}>
+        <table>
+          <thead>
+            <tr>
+              <th>{accountType === "Ärzte" ? "Patientname" : "Arztname"}</th>
+              <th>PatientId</th>
+              <th>Datum</th>
+              <th>Uhrzeit</th>
+              <th>Geschlecht</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentUser &&
+              currentUser?.[loopAccount]?.map((element: any) => (
+                <tr key={element.name}>
+                  <td>{element.name} </td>
+                  <td>{element.id} </td>
+                  <td>{element.datum} </td>
+                  <td>{element.uhrzeit} </td>
+                  <td>{element.geschlecht} </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </main>
   );
 };
