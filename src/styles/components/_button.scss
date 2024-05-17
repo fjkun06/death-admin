@@ -16,7 +16,6 @@ button {
   margin-top: 1rem;
   margin-bottom: 2rem;
   &:hover:enabled {
-    border: 0.1rem solid $textColor;
     color: $textColor;
     background-color: $bodyTextColor;
   }

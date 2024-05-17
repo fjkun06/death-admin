@@ -8,6 +8,27 @@
   $tableHead: rgb($variant, 26, 92);
   background-color: $mainBackground;
 
+  /************User scrollbar styling: both modal and table************/
+  .dtb__nutzer__modal .image--container,
+  &__table {
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: darken($tableHead, 20%);
+      background: $tableHead;
+    }
+  }
+
+  /************User Modal button styling************/
+  .dtb__nutzer__modal button {
+    background-color: $tableHead;
+    border: 0.1rem solid $tableHead;
+
+    &:hover:enabled {
+      color: $tableHead;
+      background-color: lighten($tableHead, 60%);
+    }
+  }
+
   table {
     th {
       background-color: $tableHead;
@@ -69,6 +90,36 @@
     }
   }
 
+  /************User Modal button styling************/
+  .dtb__nutzer__modal button {
+    background-color: $tableHead;
+    border: 0.1rem solid $tableHead;
+
+    &:hover:enabled {
+      color: $tableHead;
+      background-color: lighten($tableHead, 60%);
+    }
+  }
+  /************User scrollbar styling: both modal and table************/
+  .dtb__nutzer__modal .image--container,
+  &__table {
+    &::-webkit-scrollbar {
+      @include size(0.7rem);
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: $bodyTextColor;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: darken($tableHead, 20%);
+      background: $tableHead;
+      border-radius: 10rem;
+    }
+  }
+
   /************User Table section************/
   &__table {
     width: 100%;
@@ -77,22 +128,6 @@
 
     @media (max-width: 540px) {
       overflow-x: scroll;
-      &::-webkit-scrollbar {
-        width: 0.7rem;
-        height: 0.7rem;
-      }
-
-      /* Track */
-      &::-webkit-scrollbar-track {
-        background: $bodyTextColor;
-      }
-
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
-        background: darken($tableHead, 20%);
-        background: $tableHead;
-        border-radius: 10rem;
-      }
     }
 
     table {
@@ -114,6 +149,7 @@
       padding: 1.2rem 1.5rem;
     }
 
+    /******************Table rows*****************/
     tbody tr {
       border-bottom: 1px solid #dddddd;
       background-color: $bodyTextColor;
