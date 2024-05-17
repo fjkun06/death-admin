@@ -36,7 +36,7 @@ const HomeScreen = () => {
 
     /**Rerouting to user page after auth */
     isLoggedIn && startSession();
-    isLoggedIn && router.push(`/users/${auth?.username}`);
+    isLoggedIn && router.push(`/nutzer/${auth?.username}`);
 
     /**Resetting all fields if user is authenticated */
     !isLoggedIn && resetAllFields();
