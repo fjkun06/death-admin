@@ -1,14 +1,41 @@
 @use "../utils/mixins" as *;
 @use "../utils/variables" as *;
-.dtb__nutzer {
+
+/*Mixin to generate color theme based on user account type*/
+@mixin userTheme($variant) {
+  $mainBackground: rgba($variant, 26, 92, 0.596);
+  $tableHeadHover: rgba($variant, 26, 92, 0.85);
+  $tableHead: rgb($variant, 26, 92);
+  background-color: $mainBackground;
+
+  table {
+    th {
+      background-color: $tableHead;
+    }
+  }
+  tbody tr {
+    &:hover {
+      background-color: $tableHead;
+    }
+
+    &:last-of-type {
+      border-bottom: 2px solid $tableHead;
+    }
+  }
+}
+
+.dtb__nutzer,
+.dtb__nutzer__Ärzte,
+.dtb__nutzer__Gesundheitsämter,
+.dtb__nutzer__Standesämter {
   justify-content: flex-start;
+  $tableHead: rgb(0, 152, 121);
+  background-color: rgba($tableHead, 0.589);
 
   /***********User page header********* */
   header {
     @include size(100%, max-content);
     @include flex;
-    justify-content: space-between;
-    // background-color: red;
     padding: 2rem;
 
     /************Welcome text************/
@@ -33,7 +60,6 @@
     @include flex;
     justify-content: flex-start;
     gap: 2rem;
-    // background-color: red;
     padding: 2rem;
 
     span:first-child {
@@ -49,7 +75,6 @@
 
     /******************Table header*****************/
     th {
-      padding: 1.2rem;
       text-align: left;
       background-color: $tableHead;
       color: white;
@@ -58,7 +83,7 @@
 
   th,
   td {
-    padding: 12px 15px;
+    padding: 1.2rem 1.5rem;
   }
 
   tbody tr {
@@ -73,12 +98,19 @@
 
     &:hover {
       color: $bodyTextColor;
-      background-color: $tableHead;
+      background-color: rgba($tableHead, 0.85);
       cursor: pointer;
     }
-  }
 
-  tbody tr:last-of-type {
-    border-bottom: 2px solid $tableHead;
+    &:last-of-type {
+      border-bottom: 2px solid $tableHead;
+    }
   }
+}
+
+.dtb__nutzer__Standesämter {
+  @include userTheme(38);
+}
+.dtb__nutzer__Gesundheitsämter {
+  @include userTheme(76);
 }

@@ -49,7 +49,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
 
   /***If user is logged in */
   return (
-    <main className={classNameGenerator("nutzer")}>
+    <main className={classNameGenerator(`nutzer__${accountType}`)}>
       <header className="">
         <div>
           <h1>Herzlich willkommen, {user}</h1>
