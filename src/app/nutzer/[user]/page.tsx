@@ -36,10 +36,11 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
     currentUser && accountTypeChecker(currentUser?.token as string);
   const loopAccount =
     accountType && accountType === "Ärzte" ? "clients" : "doctors";
-  
+
   //boolean to tell user midal to display just two buttons for the view
-  const isGesund =
-    accountType && (accountType === "Gesundheitsämter") as any;
+  const isArzt = accountType && ((accountType === "Ärzte") as any);
+  //boolean to tell user midal to display just two buttons for the view
+  const isGesund = accountType && ((accountType === "Gesundheitsämter") as any);
 
   /**Logout handler */
   const logOut = () => {
@@ -115,7 +116,9 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
           </tbody>
         </table>
       </div>
-      {modalOn && <UserModal toggleModal={toggleModal} isGesund={isGesund} />}
+      {modalOn && (
+        <UserModal toggleModal={toggleModal} {...{ isArzt, isGesund }} />
+      )}
     </main>
   );
 };

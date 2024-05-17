@@ -4,8 +4,9 @@ import React from "react";
 interface UserModal {
   toggleModal: () => void;
   isGesund: boolean;
+  isArzt: boolean;
 }
-const UserModal: React.FC<UserModal> = ({ toggleModal, isGesund }) => {
+const UserModal: React.FC<UserModal> = ({ toggleModal, isGesund, isArzt }) => {
   return (
     <div className={classNameGenerator(`nutzer__modal`)}>
       <section>
@@ -16,12 +17,14 @@ const UserModal: React.FC<UserModal> = ({ toggleModal, isGesund }) => {
           <button type="button">Abrufen</button>
         </div>
         <div className="image--container">
-          <Image
-            src="/Picture1.webp"
-            width={630}
-            height={905}
-            alt="smaple Form"
-          />
+          {isArzt && (
+            <Image
+              src="/Picture1.webp"
+              width={630}
+              height={905}
+              alt="smaple Form"
+            />
+          )}
           <Image
             src="/Picture2.webp"
             width={630}
