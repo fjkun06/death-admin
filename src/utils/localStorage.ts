@@ -6,13 +6,6 @@ export interface User {
   doctors?: Client[];
 }
 
-// export interface DoctorClient extends Client {
-//     name: string;
-// }
-// export interface AmtClient extends Client {
-//     name: string;
-// }
-
 export interface Client { 
 geschlecht: string;
   uhrzeit: string;
