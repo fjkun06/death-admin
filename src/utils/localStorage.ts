@@ -64,14 +64,10 @@ export function addInitialUserToLocalStorage() {
   }
 }
 
-/**Log user in in localStorage */
-export function startSession() {
-  localStorage.setItem("status", "loggedin");
-}
 
 /**Log user out in localStorage */
 export function endSession() {
-  localStorage.setItem("status", "loggedout");
+  localStorage.removeItem("currentUser");
 }
 
 export function authenticateUser({ user, passwort, token }: User) {

@@ -1,6 +1,6 @@
 "use client";
 import { classNameGenerator } from "@/utils";
-import { authenticateUser, startSession } from "@/utils/localStorage";
+import { authenticateUser } from "@/utils/localStorage";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -35,7 +35,6 @@ const HomeScreen = () => {
     setLoading(isLoggedIn);
 
     /**Rerouting to user page after auth */
-    isLoggedIn && startSession();
     isLoggedIn && router.push(`/nutzer/${auth?.username}`);
 
     /**Resetting all fields if user is authenticated */

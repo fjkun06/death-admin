@@ -1,52 +1,82 @@
 @use "../utils/mixins" as *;
 @use "../utils/variables" as *;
 .dtb__nutzer {
-// table {
-//     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-// }
+  justify-content: flex-start;
 
-//  th,
-//  td {
-//     padding: 12px 15px;
-// }
+  /***********User page header********* */
+  header {
+    @include size(100%, max-content);
+    @include flex;
+    justify-content: space-between;
+    // background-color: red;
+    padding: 2rem;
 
-//  tbody tr {
-//     border-bottom: 1px solid #dddddd;
-//     transition: all 0.25s ease-in-out;
-// }
+    /************Welcome text************/
+    div {
+      h1 {
+        font-size: 5rem;
+      }
+      span {
+        font-size: 2rem;
+      }
+    }
 
-//  tbody tr:nth-of-type(even) {
-//     background-color: #f3f3f3;
-// }
+    /************Logout Button************/
+    button{
+      align-self: flex-start;
+    }
+  }
+  // table {
+  //     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  // }
 
-//  tbody tr:last-of-type {
-//     border-bottom: 2px solid #009879;
-// }
+  //  th,
+  //  td {
+  //     padding: 12px 15px;
+  // }
 
-// tbody tr:hover {
-//     color: #009879;
-// }
+  //  tbody tr {
+  //     border-bottom: 1px solid #dddddd;
+  //     transition: all 0.25s ease-in-out;
+  // }
 
-table {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  //  tbody tr:nth-of-type(even) {
+  //     background-color: #f3f3f3;
+  // }
 
-table td, table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+  //  tbody tr:last-of-type {
+  //     border-bottom: 2px solid #009879;
+  // }
 
-table tr:nth-child(even){background-color: #f2f2f2;}
+  // tbody tr:hover {
+  //     color: #009879;
+  // }
 
-table tr:hover {background-color: #ddd;}
+  table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
+  table td,
+  table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  table tr:hover {
+    background-color: #ddd;
+  }
+
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04aa6d;
+    color: white;
+  }
 }

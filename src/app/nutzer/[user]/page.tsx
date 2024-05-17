@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { classNameGenerator } from "@/utils";
 import accountTypeChecker from "@/utils/accountTypeChecker";
-import { User } from "@/utils/localStorage";
+import { endSession, User } from "@/utils/localStorage";
 import React from "react";
 
 const Projects = ({ params: { user } }: { params: { user: string } }) => {
@@ -38,7 +38,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
   /***If user is logged in */
   return (
     <main className={classNameGenerator("nutzer")}>
-      <div className="">
+      <header className="">
         <div>
           <h1>Herzlich willkommen, {user}</h1>
           {currentUser && (
@@ -46,14 +46,12 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
               Kontoklasse: {accountTypeChecker(currentUser?.token as string)}
             </span>
           )}
-          {/* <span>{currentUser?.user}</span> */}
-          {/* <span>{currentUser?.token}</span> */}
         </div>
 
-        <button type="submit" className='logout'>
+        <button type="button" className='logout' onClick={endSession}>
           Abmelden
         </button>
-      </div>
+      </header>
 
       <table id="customer">
         <thead>

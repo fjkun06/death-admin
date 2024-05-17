@@ -25,6 +25,10 @@ button {
   }
 }
 
-.logout{
-  background-color: #d13c3c;
+.logout {
+  background-color: #d13c3cc7;
+  &:hover:enabled {
+    color: $bodyTextColor;
+    background-color: #d13c3c;
+  }
 }
