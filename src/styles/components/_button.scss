@@ -31,6 +31,13 @@ button {
     background-color: #d13c3c;
   }
 }
+.forofor {
+  background-color: $bodyTextColor;
+  color: $textColor;
+  &:hover:enabled {
+    transform: scale(1.025);
+  }
+}
 
 .new {
   @include flex;
