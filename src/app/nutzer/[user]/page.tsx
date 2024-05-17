@@ -24,7 +24,6 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
       }
     }
     setCurrentUser(getData());
-    // console.log(accountTypeChecker(getData().token));
   }, [router, user]);
 
   /****Account type variable */
@@ -61,7 +60,11 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
         </button>
       </header>
       <div className={classNameGenerator("nutzer__neu")}>
-        <span>Hier drücken um neue Patiententen hinzuzufügen</span>
+        <span>
+          Hier drücken, um neue{" "}
+          {accountType === "Ärzte" ? "Patienten " : "Ärzte "}
+          hinzuzufügen
+        </span>
         <button type="button" className="new" onClick={logOut}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +78,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
               d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
             />
           </svg>
-          <span>Neu Patient</span>
+          <span>Neu {accountType === "Ärzte" ? "Patient " : "Arzt "}</span>
         </button>
       </div>
 

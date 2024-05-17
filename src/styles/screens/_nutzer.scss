@@ -36,6 +36,7 @@
   header {
     @include size(100%, max-content);
     @include flex;
+    justify-content: space-between;
     padding: 2rem;
 
     /************Welcome text************/
