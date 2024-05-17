@@ -27,6 +27,12 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
     // console.log(accountTypeChecker(getData().token));
   }, [router, user]);
 
+  /**Logout handler */
+  const logOut = () => {
+    endSession();
+    router.push("/");
+  };
+
   /***Loasding screen to show during authentication */
   if (loading)
     return (
@@ -48,10 +54,28 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
           )}
         </div>
 
-        <button type="button" className='logout' onClick={endSession}>
+        <button type="button" className="logout" onClick={logOut}>
           Abmelden
         </button>
       </header>
+      <div className={classNameGenerator("nutzer__neu")}>
+        <span>Hier drücken um neue Patiententen hinzuzufügen</span>
+        <button type="button" className="new" onClick={logOut}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
+            />
+          </svg>
+          <span>Neu Patient</span>
+        </button>
+      </div>
 
       <table id="customer">
         <thead>
@@ -59,19 +83,47 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
             <th>Patientname</th>
             <th>Datum</th>
             <th>Uhrzeit</th>
-            <th>Gender</th>
+            <th>Geschlecht</th>
           </tr>
         </thead>
-        {/* <tbody>
-      <tr v-for="({ id, species, gender, birthdate, weight, name }, animalIndex) in animalsSortedByName" :key="id" class="hover:bg-gray-200 cursor-pointer" @click="navigateToAnimalPage(id)">
-        <td>{{ animalIndex + 1 }}</td>
-        <td>{{ species }}</td>
-        <td>{{ name }}</td>
-        <td>{{ gender }}</td>
-        <td>{{ calculateAgeInYears(new Date(birthdate)) }}</td>
-        <td>{{ weight }}</td>
-      </tr>
-    </tbody> */}
+        <tbody>
+          <tr>
+            <td>animalIndex + 1 </td>
+            <td>species </td>
+            <td>name </td>
+            <td>gender </td>
+          </tr>
+          <tr>
+            <td>animalIndex + 1 </td>
+            <td>species </td>
+            <td>name </td>
+            <td>gender </td>
+          </tr>
+          <tr>
+            <td>animalIndex + 1 </td>
+            <td>species </td>
+            <td>name </td>
+            <td>gender </td>
+          </tr>
+          <tr>
+            <td>animalIndex + 1 </td>
+            <td>species </td>
+            <td>name </td>
+            <td>gender </td>
+          </tr>
+          <tr>
+            <td>animalIndex + 1 </td>
+            <td>species </td>
+            <td>name </td>
+            <td>gender </td>
+          </tr>
+          <tr>
+            <td>animalIndex + 1 </td>
+            <td>species </td>
+            <td>name </td>
+            <td>gender </td>
+          </tr>
+        </tbody>
       </table>
     </main>
   );

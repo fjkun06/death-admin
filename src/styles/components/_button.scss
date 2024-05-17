@@ -32,3 +32,16 @@ button {
     background-color: #d13c3c;
   }
 }
+
+.new {
+  @include flex;
+  background-color: $bodyTextColor;
+  color: $textColor;
+  gap: 0.5rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  margin: 0;
+  &:hover {
+    transform: scale(1.025);
+  }
+}

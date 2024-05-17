@@ -22,61 +22,63 @@
     }
 
     /************Logout Button************/
-    button{
+    button {
       align-self: flex-start;
     }
   }
-  // table {
-  //     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  // }
 
-  //  th,
-  //  td {
-  //     padding: 12px 15px;
-  // }
+  /************New user section************/
+  &__neu {
+    @include size(100%, max-content);
+    @include flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    // background-color: red;
+    padding: 2rem;
 
-  //  tbody tr {
-  //     border-bottom: 1px solid #dddddd;
-  //     transition: all 0.25s ease-in-out;
-  // }
-
-  //  tbody tr:nth-of-type(even) {
-  //     background-color: #f3f3f3;
-  // }
-
-  //  tbody tr:last-of-type {
-  //     border-bottom: 2px solid #009879;
-  // }
-
-  // tbody tr:hover {
-  //     color: #009879;
-  // }
-
+    span:first-child {
+      font-size: 1.8rem;
+    }
+  }
   table {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin-inline: 2rem;
+
+    /******************Table header*****************/
+    th {
+      padding: 1.2rem;
+      text-align: left;
+      background-color: $tableHead;
+      color: white;
+    }
   }
 
-  table td,
-  table th {
-    border: 1px solid #ddd;
-    padding: 8px;
+  th,
+  td {
+    padding: 12px 15px;
   }
 
-  table tr:nth-child(even) {
-    background-color: #f2f2f2;
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+    background-color: $bodyTextColor;
+    transition: all 0.25s ease-in-out;
+    color: $textColor;
+
+    &:nth-of-type(even) {
+      background-color: #ddd;
+    }
+
+    &:hover {
+      color: $bodyTextColor;
+      background-color: $tableHead;
+      cursor: pointer;
+    }
   }
 
-  table tr:hover {
-    background-color: #ddd;
-  }
-
-  table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04aa6d;
-    color: white;
+  tbody tr:last-of-type {
+    border-bottom: 2px solid $tableHead;
   }
 }
