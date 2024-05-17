@@ -27,6 +27,12 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
     // console.log(accountTypeChecker(getData().token));
   }, [router, user]);
 
+  /****Account type variable */
+  const accountType =
+    currentUser && accountTypeChecker(currentUser?.token as string);
+  const loopAccount =
+    accountType && accountType === "Ärzte" ? "clients" : "doctors";
+
   /**Logout handler */
   const logOut = () => {
     endSession();
@@ -36,7 +42,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
   /***Loasding screen to show during authentication */
   if (loading)
     return (
-      <main className={classNameGenerator("nutzer")}>
+      <main>
         <h1>Ladend...</h1>
       </main>
     );
@@ -47,11 +53,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
       <header className="">
         <div>
           <h1>Herzlich willkommen, {user}</h1>
-          {currentUser && (
-            <span>
-              Kontoklasse: {accountTypeChecker(currentUser?.token as string)}
-            </span>
-          )}
+          {currentUser && <span>Kontoklasse: {accountType}</span>}
         </div>
 
         <button type="button" className="logout" onClick={logOut}>
@@ -69,7 +71,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
             viewBox="0 0 16 16"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
             />
           </svg>
@@ -80,49 +82,24 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
       <table id="customer">
         <thead>
           <tr>
-            <th>Patientname</th>
+            <th>{accountType === "Ärzte" ? "Patientname" : "Arztname"}</th>
+            <th>PatientId</th>
             <th>Datum</th>
             <th>Uhrzeit</th>
             <th>Geschlecht</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>animalIndex + 1 </td>
-            <td>species </td>
-            <td>name </td>
-            <td>gender </td>
-          </tr>
-          <tr>
-            <td>animalIndex + 1 </td>
-            <td>species </td>
-            <td>name </td>
-            <td>gender </td>
-          </tr>
-          <tr>
-            <td>animalIndex + 1 </td>
-            <td>species </td>
-            <td>name </td>
-            <td>gender </td>
-          </tr>
-          <tr>
-            <td>animalIndex + 1 </td>
-            <td>species </td>
-            <td>name </td>
-            <td>gender </td>
-          </tr>
-          <tr>
-            <td>animalIndex + 1 </td>
-            <td>species </td>
-            <td>name </td>
-            <td>gender </td>
-          </tr>
-          <tr>
-            <td>animalIndex + 1 </td>
-            <td>species </td>
-            <td>name </td>
-            <td>gender </td>
-          </tr>
+          {currentUser &&
+            currentUser?.[loopAccount]?.map((element: any) => (
+              <tr key={element.name}>
+                <td>{element.name} </td>
+                <td>{element.id} </td>
+                <td>{element.datum} </td>
+                <td>{element.uhrzeit} </td>
+                <td>{element.geschlecht} </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </main>

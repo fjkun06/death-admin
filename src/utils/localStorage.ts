@@ -2,6 +2,24 @@ export interface User {
   user: string;
   passwort: string;
   token: string;
+  clients?: Client[];
+  doctors?: Client[];
+}
+
+// export interface DoctorClient extends Client {
+//     name: string;
+// }
+// export interface AmtClient extends Client {
+//     name: string;
+// }
+
+export interface Client { 
+geschlecht: string;
+  uhrzeit: string;
+  datum: string;
+  id: string;
+  name: string;
+
 }
 
 export const data = [
@@ -11,31 +29,36 @@ export const data = [
         token: "ARZ1A2B3",
         clients: [
             {
-                patientname: "Anna Müller",
+                id: "A1B2C3D4",
+                name: "Anna Müller",
                 datum: "2024-05-01",
                 uhrzeit: "10:30",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Max Mustermann",
+                id: "E5F6G7H8",
+                name: "Max Mustermann",
                 datum: "2024-05-02",
                 uhrzeit: "11:00",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Julia Schmidt",
+                id: "I9J0K1L2",
+                name: "Julia Schmidt",
                 datum: "2024-05-03",
                 uhrzeit: "09:45",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Lukas Bauer",
+                id: "M3N4O5P6",
+                name: "Lukas Bauer",
                 datum: "2024-05-04",
                 uhrzeit: "13:15",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Mia Wagner",
+                id: "Q7R8S9T0",
+                name: "Mia Wagner",
                 datum: "2024-05-05",
                 uhrzeit: "14:00",
                 geschlecht: "weiblich"
@@ -46,33 +69,38 @@ export const data = [
         user: "sofrzone2",
         passwort: "StrongPass42",
         token: "STA4D5E6",
-        clients: [
+        doctors: [
             {
-                patientname: "Leon Fischer",
+                id: "U1V2W3X4",
+                name: "Leon Fischer",
                 datum: "2024-05-06",
                 uhrzeit: "15:30",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Anna Schmidt",
+                id: "Y5Z6A7B8",
+                name: "Anna Schmidt",
                 datum: "2024-05-07",
                 uhrzeit: "09:00",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Peter Meier",
+                id: "C9D0E1F2",
+                name: "Peter Meier",
                 datum: "2024-05-08",
                 uhrzeit: "10:15",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Laura Klein",
+                id: "G3H4I5J6",
+                name: "Laura Klein",
                 datum: "2024-05-09",
                 uhrzeit: "11:45",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Tom Schneider",
+                id: "K7L8M9N0",
+                name: "Tom Schneider",
                 datum: "2024-05-10",
                 uhrzeit: "12:30",
                 geschlecht: "männlich"
@@ -83,33 +111,38 @@ export const data = [
         user: "sofrzone3",
         passwort: "UniquePwd53",
         token: "GES7F8G9",
-        clients: [
+        doctors: [
             {
-                patientname: "Emma Weber",
+                id: "O1P2Q3R4",
+                name: "Emma Weber",
                 datum: "2024-05-11",
                 uhrzeit: "08:45",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Markus Braun",
+                id: "S5T6U7V8",
+                name: "Markus Braun",
                 datum: "2024-05-12",
                 uhrzeit: "09:30",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Sara Weiß",
+                id: "W9X0Y1Z2",
+                name: "Sara Weiß",
                 datum: "2024-05-13",
                 uhrzeit: "10:45",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Jan Krüger",
+                id: "A3B4C5D6",
+                name: "Jan Krüger",
                 datum: "2024-05-14",
                 uhrzeit: "11:15",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Nina Hofmann",
+                id: "E7F8G9H0",
+                name: "Nina Hofmann",
                 datum: "2024-05-15",
                 uhrzeit: "12:00",
                 geschlecht: "weiblich"
@@ -122,31 +155,36 @@ export const data = [
         token: "ARZA1B2C",
         clients: [
             {
-                patientname: "Alexandra Becker",
+                id: "I1J2K3L4",
+                name: "Alexandra Becker",
                 datum: "2024-05-16",
                 uhrzeit: "08:30",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Philipp Bauer",
+                id: "M5N6O7P8",
+                name: "Philipp Bauer",
                 datum: "2024-05-17",
                 uhrzeit: "09:45",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Sophia Richter",
+                id: "Q9R0S1T2",
+                name: "Sophia Richter",
                 datum: "2024-05-18",
                 uhrzeit: "10:00",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Henrik Hartmann",
+                id: "U3V4W5X6",
+                name: "Henrik Hartmann",
                 datum: "2024-05-19",
                 uhrzeit: "11:30",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Isabel Zimmermann",
+                id: "Y7Z8A9B0",
+                name: "Isabel Zimmermann",
                 datum: "2024-05-20",
                 uhrzeit: "12:45",
                 geschlecht: "weiblich"
@@ -157,33 +195,38 @@ export const data = [
         user: "sofrzone5",
         passwort: "SafeKey75",
         token: "STAD3E4F",
-        clients: [
+        doctors: [
             {
-                patientname: "Oliver Schmitz",
+                id: "C1D2E3F4",
+                name: "Oliver Schmitz",
                 datum: "2024-05-21",
                 uhrzeit: "09:15",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Marie Neumann",
+                id: "G5H6I7J8",
+                name: "Marie Neumann",
                 datum: "2024-05-22",
                 uhrzeit: "10:30",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Daniel Koch",
+                id: "K9L0M1N2",
+                name: "Daniel Koch",
                 datum: "2024-05-23",
                 uhrzeit: "11:00",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Clara Seidel",
+                id: "O3P4Q5R6",
+                name: "Clara Seidel",
                 datum: "2024-05-24",
                 uhrzeit: "12:15",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Hannah Wolf",
+                id: "S7T8U9V0",
+                name: "Hannah Wolf",
                 datum: "2024-05-25",
                 uhrzeit: "13:00",
                 geschlecht: "weiblich"
@@ -194,33 +237,38 @@ export const data = [
         user: "sofrzone6",
         passwort: "SecurePwd86",
         token: "GES5G6H7",
-        clients: [
+        doctors: [
             {
-                patientname: "Jonas Schäfer",
+                id: "W1X2Y3Z4",
+                name: "Jonas Schäfer",
                 datum: "2024-05-26",
                 uhrzeit: "08:00",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Lea Krause",
+                id: "A5B6C7D8",
+                name: "Lea Krause",
                 datum: "2024-05-27",
                 uhrzeit: "09:30",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Finn Engel",
+                id: "E9F0G1H2",
+                name: "Finn Engel",
                 datum: "2024-05-28",
                 uhrzeit: "10:45",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Lena Fuchs",
+                id: "I3J4K5L6",
+                name: "Lena Fuchs",
                 datum: "2024-05-29",
                 uhrzeit: "11:15",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Paul Schäfer",
+                id: "M7N8O9P0",
+                name: "Paul Schäfer",
                 datum: "2024-05-30",
                 uhrzeit: "12:00",
                 geschlecht: "männlich"
@@ -233,149 +281,44 @@ export const data = [
         token: "ARZ8I9J0",
         clients: [
             {
-                patientname: "Sophie Lang",
+                id: "Q1R2S3T4",
+                name: "Sophie Lang",
                 datum: "2024-05-31",
                 uhrzeit: "09:00",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Tim Berger",
+                id: "U5V6W7X8",
+                name: "Nils Becker",
                 datum: "2024-06-01",
-                uhrzeit: "10:15",
+                uhrzeit: "10:30",
                 geschlecht: "männlich"
             },
             {
-                patientname: "Nina Weber",
+                id: "Y9Z0A1B2",
+                name: "Lara König",
                 datum: "2024-06-02",
-                uhrzeit: "11:30",
+                uhrzeit: "11:45",
                 geschlecht: "weiblich"
             },
             {
-                patientname: "Mia Winkler",
+                id: "C3D4E5F6",
+                name: "David Wagner",
                 datum: "2024-06-03",
-                uhrzeit: "12:45",
-                geschlecht: "weiblich"
+                uhrzeit: "13:00",
+                geschlecht: "männlich"
             },
             {
-                patientname: "Erik Brandt",
+                id: "G7H8I9J0",
+                name: "Ella Hoffmann",
                 datum: "2024-06-04",
-                uhrzeit: "14:00",
-                geschlecht: "männlich"
-            }
-        ]
-    },
-    {
-        user: "sofrzone8",
-        passwort: "HiddenKey108",
-        token: "STAA2B3D",
-        clients: [
-            {
-                patientname: "Jana Klein",
-                datum: "2024-06-05",
-                uhrzeit: "08:15",
-                geschlecht: "weiblich"
-            },
-            {
-                patientname: "Tom Sommer",
-                datum: "2024-06-06",
-                uhrzeit: "09:30",
-                geschlecht: "männlich"
-            },
-            {
-                patientname: "Linda Schwarz",
-                datum: "2024-06-07",
-                uhrzeit: "10:45",
-                geschlecht: "weiblich"
-            },
-            {
-                patientname: "Chris Wolf",
-                datum: "2024-06-08",
-                uhrzeit: "12:00",
-                geschlecht: "männlich"
-            },
-            {
-                patientname: "Anja König",
-                datum: "2024-06-09",
-                uhrzeit: "13:15",
-                geschlecht: "weiblich"
-            }
-        ]
-    },
-    {
-        user: "sofrzone9",
-        passwort: "LockKey219",
-        token: "GESB4C5E",
-        clients: [
-            {
-                patientname: "Felix Zimmer",
-                datum: "2024-06-10",
-                uhrzeit: "08:30",
-                geschlecht: "männlich"
-            },
-            {
-                patientname: "Eva Lange",
-                datum: "2024-06-11",
-                uhrzeit: "09:45",
-                geschlecht: "weiblich"
-            },
-            {
-                patientname: "Hannah Weiß",
-                datum: "2024-06-12",
-                uhrzeit: "11:00",
-                geschlecht: "weiblich"
-            },
-            {
-                patientname: "Kevin Peters",
-                datum: "2024-06-13",
-                uhrzeit: "12:15",
-                geschlecht: "männlich"
-            },
-            {
-                patientname: "Karin Schuster",
-                datum: "2024-06-14",
-                uhrzeit: "13:30",
-                geschlecht: "weiblich"
-            }
-        ]
-    },
-    {
-        user: "sofrzone10",
-        passwort: "UniqueKey310",
-        token: "ARZ6F7G8",
-        clients: [
-            {
-                patientname: "Daniela Meier",
-                datum: "2024-06-15",
-                uhrzeit: "08:45",
-                geschlecht: "weiblich"
-            },
-            {
-                patientname: "Christian Werner",
-                datum: "2024-06-16",
-                uhrzeit: "10:00",
-                geschlecht: "männlich"
-            },
-            {
-                patientname: "Claudia Frank",
-                datum: "2024-06-17",
-                uhrzeit: "11:15",
-                geschlecht: "weiblich"
-            },
-            {
-                patientname: "Sebastian Roth",
-                datum: "2024-06-18",
-                uhrzeit: "12:30",
-                geschlecht: "männlich"
-            },
-            {
-                patientname: "Laura Haas",
-                datum: "2024-06-19",
-                uhrzeit: "13:45",
+                uhrzeit: "14:15",
                 geschlecht: "weiblich"
             }
         ]
     }
 ];
+
 
 export function addInitialUserToLocalStorage() {
   /***Saving users to localstorage */
