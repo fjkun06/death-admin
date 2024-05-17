@@ -42,5 +42,9 @@ html {
       @include utils.flex(column);
       color: vars.$bodyTextColor;
     }
+
+    #impressum {
+      max-height: calc(100% - 70px);
+    }
   }
 }

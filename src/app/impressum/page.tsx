@@ -1,5 +1,5 @@
 import { HomeScreen, ImpressumScreen } from "@/screens";
 
 export default function Impressum() {
-  return <ImpressumScreen />;
+  return <main><ImpressumScreen /></main>;
 }

@@ -71,7 +71,7 @@ const Projects = ({ params: { user } }: { params: { user: string } }) => {
       </header>
       <div className={classNameGenerator("nutzer__neu")}>
         <span>
-          Hier drücken, um neue{" "}
+          Hier drücken, um neue
           {accountType === "Ärzte" ? "Patienten " : "Ärzte "}
           hinzuzufügen
         </span>
